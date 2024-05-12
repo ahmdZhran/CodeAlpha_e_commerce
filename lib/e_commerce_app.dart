@@ -17,6 +17,6 @@ class Ecommerce extends StatelessWidget {
               'E commers',
             ),
           ),
-        ));
+        ),);
   }
 }
