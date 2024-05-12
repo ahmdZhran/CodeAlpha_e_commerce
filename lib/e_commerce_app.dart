@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/core/app/env.variabels.dart';
 import 'package:flutter/material.dart';
 
 class Ecommerce extends StatelessWidget {
@@ -6,17 +7,19 @@ class Ecommerce extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'E-Commerce',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        home: Scaffold(
-          appBar: AppBar(
-            title: const Text(
-              'E commers',
-            ),
+      title: 'E-Commerce',
+      debugShowCheckedModeBanner: EnvVariable.instance.debugMode,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            'E commers',
           ),
-        ),);
+        ),
+      ),
+    );
   }
 }
