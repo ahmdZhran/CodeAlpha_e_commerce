@@ -8,13 +8,15 @@ class JustForNavigationTestOne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
       body: Center(
           child: TextButton(
         onPressed: () {
           context.pushNamed(AppRouter.testSecond);
         },
-        child: Text('go to second'),
+        child: Text(
+          'go to second',
+          style: TextStyle(color: context.colors.mainColor),
+        ),
       )),
     );
   }

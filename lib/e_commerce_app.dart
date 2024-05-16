@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/core/extentions/theme/app_theme.dart';
 import 'package:e_commerce_app/core/router/app_router.dart';
 import 'package:e_commerce_app/core/utils/connectivity_controller.dart';
 import 'package:e_commerce_app/core/widgets/no_connection_widget.dart';
@@ -18,10 +19,7 @@ class Ecommerce extends StatelessWidget {
             child: MaterialApp(
               title: 'E-Commerce',
               debugShowCheckedModeBanner: false,
-              theme: ThemeData(
-                colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-                useMaterial3: true,
-              ),
+              theme: darkTheme(),
               builder: (context, widget) {
                 return Scaffold(
                   body: Builder(

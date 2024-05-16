@@ -14,7 +14,10 @@ class JustForNavigationTestTwo extends StatelessWidget {
         onPressed: () {
           context.pushNamed(AppRouter.testOne);
         },
-        child: Text('go to one '),
+        child: Text(
+          'go to one ya',
+          style: TextStyle(color: context.colors.mainColor),
+        ),
       )),
     );
   }
