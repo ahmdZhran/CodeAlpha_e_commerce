@@ -22,12 +22,17 @@ class Ecommerce extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               theme: darkTheme(),
               builder: (context, widget) {
-                return Scaffold(
-                  body: Builder(
-                    builder: (context) {
-                      ConnectivityControlleor.instance.init();
-                      return widget!;
-                    },
+                return GestureDetector(
+                  onTap: () {
+                    FocusManager.instance.primaryFocus?.unfocus();
+                  },
+                  child: Scaffold(
+                    body: Builder(
+                      builder: (context) {
+                        ConnectivityControlleor.instance.init();
+                        return widget!;
+                      },
+                    ),
                   ),
                 );
               },
