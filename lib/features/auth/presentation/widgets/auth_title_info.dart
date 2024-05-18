@@ -1,5 +1,4 @@
 import 'package:e_commerce_app/core/extentions/extentions_helper.dart';
-import 'package:e_commerce_app/core/utils/font_family_center.dart';
 import 'package:e_commerce_app/core/widgets/animation/animate_do_widget.dart';
 import 'package:e_commerce_app/core/widgets/text_app.dart';
 import 'package:flutter/material.dart';
