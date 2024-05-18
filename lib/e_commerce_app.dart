@@ -37,7 +37,7 @@ class Ecommerce extends StatelessWidget {
                 );
               },
               onGenerateRoute: AppRouter.onGenerateRoute,
-              initialRoute: AppRouter.testOne,
+              initialRoute: AppRouter.signInView,
               locale: Locale('en'),
               supportedLocales: AppLocalizationsSetup.supportedLocales,
               localeResolutionCallback:
