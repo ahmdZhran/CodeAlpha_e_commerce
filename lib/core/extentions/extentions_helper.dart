@@ -1,9 +1,12 @@
-import 'package:e_commerce_app/core/extentions/theme/colors_extention.dart';
-import 'package:e_commerce_app/core/utils/languages/app_localizations.dart';
+import 'package:e_commerce_app/core/languages/app_localizations.dart';
+import 'package:e_commerce_app/core/theme/assets_extension.dart';
 import 'package:flutter/material.dart';
+
+import '../theme/colors_extension.dart';
 
 extension ExtentionsHelper on BuildContext {
   MyColors get colors => Theme.of(this).extension<MyColors>()!;
+  MyAssets get assets => Theme.of(this).extension<MyAssets>()!;
 
   Future<dynamic> pushNamed(String routeName, {Object? arguments}) {
     return Navigator.of(this).pushNamed(routeName, arguments: arguments);
