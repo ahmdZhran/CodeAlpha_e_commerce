@@ -1,5 +1,6 @@
-import 'package:e_commerce_app/core/extentions/extentionsHelper.dart';
+import 'package:e_commerce_app/core/extentions/extentions_helper.dart';
 import 'package:e_commerce_app/core/router/app_router.dart';
+import 'package:e_commerce_app/core/utils/languages/lang_keys.dart';
 import 'package:flutter/material.dart';
 
 class JustForNavigationTestOne extends StatelessWidget {
@@ -8,14 +9,24 @@ class JustForNavigationTestOne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.amberAccent,
       body: Center(
           child: TextButton(
         onPressed: () {
           context.pushNamed(AppRouter.testSecond);
         },
-        child: Text(
-          'go to second',
-          style: TextStyle(color: context.colors.mainColor),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              context.translate(LangKeys.appName),
+              style: TextStyle(color: context.colors.mainColor),
+            ),
+            Text(
+              'go to second',
+              style: TextStyle(color: context.colors.mainColor),
+            ),
+          ],
         ),
       )),
     );
