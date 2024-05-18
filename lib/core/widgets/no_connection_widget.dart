@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/core/utils/app_assets.dart';
+import 'package:e_commerce_app/core/utils/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -11,7 +11,7 @@ class NoConnectionWidget extends StatelessWidget {
       body: Center(
           child: Padding(
         padding: const EdgeInsets.only(left: 18.0),
-        child: LottieBuilder.asset(AppAssets.noConnection),
+        child: LottieBuilder.asset(AppImages.noNetwork),
       )),
     );
   }

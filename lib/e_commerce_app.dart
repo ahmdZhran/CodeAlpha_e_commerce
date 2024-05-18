@@ -1,7 +1,7 @@
-import 'package:e_commerce_app/core/extentions/theme/app_theme.dart';
+import 'package:e_commerce_app/core/theme/app_theme.dart';
 import 'package:e_commerce_app/core/router/app_router.dart';
 import 'package:e_commerce_app/core/utils/connectivity_controller.dart';
-import 'package:e_commerce_app/core/utils/languages/app_localizations_setup.dart';
+import 'package:e_commerce_app/core/languages/app_localizations_setup.dart';
 import 'package:e_commerce_app/core/widgets/no_connection_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

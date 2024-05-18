@@ -2,7 +2,7 @@ import 'package:e_commerce_app/core/styles/colors/dark_colors.dart';
 import 'package:e_commerce_app/core/styles/colors/light_colors.dart';
 import 'package:flutter/material.dart';
 
-import 'colors_extention.dart';
+import 'colors_extension.dart';
 
 ThemeData darkTheme() {
   return ThemeData(
