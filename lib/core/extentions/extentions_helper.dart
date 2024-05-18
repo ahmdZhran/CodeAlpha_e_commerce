@@ -5,8 +5,11 @@ import 'package:flutter/material.dart';
 import '../theme/colors_extension.dart';
 
 extension ExtentionsHelper on BuildContext {
-  MyColors get colors => Theme.of(this).extension<MyColors>()!;
+  MyColors get color => Theme.of(this).extension<MyColors>()!;
+
   MyAssets get assets => Theme.of(this).extension<MyAssets>()!;
+
+  TextStyle get textStyle => Theme.of(this).textTheme.displaySmall!;
 
   Future<dynamic> pushNamed(String routeName, {Object? arguments}) {
     return Navigator.of(this).pushNamed(routeName, arguments: arguments);

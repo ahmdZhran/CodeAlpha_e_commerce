@@ -20,11 +20,11 @@ class JustForNavigationTestOne extends StatelessWidget {
           children: [
             Text(
               context.translate(LangKeys.appName),
-              style: TextStyle(color: context.colors.mainColor),
+              style: TextStyle(color: context.color.mainColor),
             ),
             Text(
               'go to second',
-              style: TextStyle(color: context.colors.mainColor),
+              style: TextStyle(color: context.color.mainColor),
             ),
           ],
         ),

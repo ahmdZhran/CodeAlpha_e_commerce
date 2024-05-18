@@ -16,7 +16,9 @@ class JustForNavigationTestTwo extends StatelessWidget {
         },
         child: Text(
           'go to one ya',
-          style: TextStyle(color: context.colors.mainColor,),
+          style: TextStyle(
+            color: context.color.mainColor,
+          ),
         ),
       )),
     );
