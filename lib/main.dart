@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/core/app/bloc_observer.dart';
 import 'package:e_commerce_app/core/app/env.variabels.dart';
+import 'package:e_commerce_app/core/di/dependency_injector.dart';
 import 'package:e_commerce_app/core/services/shared_pref.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   Bloc.observer = AppBlocObserver();
+  await setupServiceLocator();
   SharedPref().instantiatePreferences();
   runApp(const Ecommerce());
 }
