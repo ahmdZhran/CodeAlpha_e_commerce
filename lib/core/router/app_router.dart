@@ -10,7 +10,7 @@ class AppRouter {
   static const String signUpView = "Sign Up view";
 
   static Route<void> onGenerateRoute(RouteSettings settings) {
-    final args = settings.arguments;
+    // final args = settings.arguments;
     switch (settings.name) {
       case signInView:
         return BaseRoute(page: SignInView());
