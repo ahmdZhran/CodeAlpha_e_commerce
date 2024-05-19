@@ -1,5 +1,4 @@
 import 'package:e_commerce_app/core/extentions/extentions_helper.dart';
-import 'package:e_commerce_app/core/languages/lang_keys.dart';
 import 'package:e_commerce_app/core/utils/font_wieght_styles.dart';
 import 'package:e_commerce_app/core/widgets/animation/animate_do_widget.dart';
 import 'package:e_commerce_app/core/widgets/custom_linear_button.dart';
