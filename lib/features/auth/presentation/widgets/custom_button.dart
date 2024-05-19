@@ -8,8 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key});
-
+  const CustomButton({super.key, required this.text, required this.onPressed});
+  final String text;
+  final void Function() onPressed;
   @override
   Widget build(BuildContext context) {
     return CustomFadeInDown(
@@ -17,9 +18,9 @@ class CustomButton extends StatelessWidget {
       child: CustomLinearButton(
         height: 60,
         width: double.infinity,
-        onPressed: () {},
+        onPressed: onPressed,
         child: TextApp(
-          text: context.translate(LangKeys.login),
+          text: text,
           theme: context.textStyle.copyWith(
             fontSize: 18.sp,
             fontWeight: FontWeightStyle.bold,
