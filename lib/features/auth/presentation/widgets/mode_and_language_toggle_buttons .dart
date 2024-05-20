@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/core/app/app_cubit/cubit/app_cubit.dart';
 import 'package:e_commerce_app/core/extentions/extentions_helper.dart';
+import 'package:e_commerce_app/core/languages/app_localizations.dart';
 import 'package:e_commerce_app/core/languages/lang_keys.dart';
 import 'package:e_commerce_app/core/widgets/animation/animate_do_widget.dart';
 import 'package:e_commerce_app/core/widgets/custom_linear_button.dart';
@@ -40,7 +41,13 @@ class ModeAndLanguageToggleButtons extends StatelessWidget {
           child: CustomLinearButton(
             height: 44.h,
             width: 100,
-            onPressed: () {},
+            onPressed: () {
+              if (AppLocalizations.of(context)!.isEnLocale) {
+                cubit.toArabic();
+              } else {
+                cubit.toEnglish();
+              }
+            },
             child: TextApp(
               text: context.translate(LangKeys.language),
               theme: context.textStyle.copyWith(

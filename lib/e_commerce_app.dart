@@ -52,7 +52,7 @@ class Ecommerce extends StatelessWidget {
                     },
                     onGenerateRoute: AppRouter.onGenerateRoute,
                     initialRoute: AppRouter.signInView,
-                    locale: Locale('en'),
+                    locale: Locale(cubit.currentLang),
                     supportedLocales: AppLocalizationsSetup.supportedLocales,
                     localeResolutionCallback:
                         AppLocalizationsSetup.localeResolutionCallback,
