@@ -23,7 +23,9 @@ class Ecommerce extends StatelessWidget {
           return BlocProvider(
             create: (context) => getIt<AppCubit>()
               ..changeThemeAppMode(
-                  sharedMode: SharedPref().getBoolean(PrefKeys.themeMode)),
+                sharedMode: SharedPref().getBoolean(PrefKeys.themeMode),
+              )
+              ..getSaveLanguage(),
             child: ScreenUtilInit(
               designSize: Size(375, 812),
               child: BlocBuilder<AppCubit, AppState>(
@@ -32,7 +34,7 @@ class Ecommerce extends StatelessWidget {
                   return MaterialApp(
                     title: 'E-Commerce',
                     debugShowCheckedModeBanner: false,
-                    theme:cubit.isDark? darkTheme() : lightThem(),
+                    theme: cubit.isDark ? darkTheme() : lightThem(),
                     builder: (context, widget) {
                       return GestureDetector(
                         onTap: () {
