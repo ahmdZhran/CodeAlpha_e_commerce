@@ -20,21 +20,21 @@ mixin _$AppState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(bool isDark) changeThemeMode,
-    required TResult Function(bool isDark) changeLanguage,
+    required TResult Function(Locale locale, bool isDark) changeLanguage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(bool isDark)? changeThemeMode,
-    TResult? Function(bool isDark)? changeLanguage,
+    TResult? Function(Locale locale, bool isDark)? changeLanguage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(bool isDark)? changeThemeMode,
-    TResult Function(bool isDark)? changeLanguage,
+    TResult Function(Locale locale, bool isDark)? changeLanguage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -125,7 +125,7 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(bool isDark) changeThemeMode,
-    required TResult Function(bool isDark) changeLanguage,
+    required TResult Function(Locale locale, bool isDark) changeLanguage,
   }) {
     return initial();
   }
@@ -135,7 +135,7 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(bool isDark)? changeThemeMode,
-    TResult? Function(bool isDark)? changeLanguage,
+    TResult? Function(Locale locale, bool isDark)? changeLanguage,
   }) {
     return initial?.call();
   }
@@ -145,7 +145,7 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(bool isDark)? changeThemeMode,
-    TResult Function(bool isDark)? changeLanguage,
+    TResult Function(Locale locale, bool isDark)? changeLanguage,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -270,7 +270,7 @@ class _$changeThemeModeImpl
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(bool isDark) changeThemeMode,
-    required TResult Function(bool isDark) changeLanguage,
+    required TResult Function(Locale locale, bool isDark) changeLanguage,
   }) {
     return changeThemeMode(isDark);
   }
@@ -280,7 +280,7 @@ class _$changeThemeModeImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(bool isDark)? changeThemeMode,
-    TResult? Function(bool isDark)? changeLanguage,
+    TResult? Function(Locale locale, bool isDark)? changeLanguage,
   }) {
     return changeThemeMode?.call(isDark);
   }
@@ -290,7 +290,7 @@ class _$changeThemeModeImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(bool isDark)? changeThemeMode,
-    TResult Function(bool isDark)? changeLanguage,
+    TResult Function(Locale locale, bool isDark)? changeLanguage,
     required TResult orElse(),
   }) {
     if (changeThemeMode != null) {
@@ -350,7 +350,7 @@ abstract class _$$changeLanguageStateImplCopyWith<$Res> {
           $Res Function(_$changeLanguageStateImpl) then) =
       __$$changeLanguageStateImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({bool isDark});
+  $Res call({Locale locale, bool isDark});
 }
 
 /// @nodoc
@@ -364,9 +364,14 @@ class __$$changeLanguageStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? locale = null,
     Object? isDark = null,
   }) {
     return _then(_$changeLanguageStateImpl(
+      locale: null == locale
+          ? _value.locale
+          : locale // ignore: cast_nullable_to_non_nullable
+              as Locale,
       isDark: null == isDark
           ? _value.isDark
           : isDark // ignore: cast_nullable_to_non_nullable
@@ -380,14 +385,16 @@ class __$$changeLanguageStateImplCopyWithImpl<$Res>
 class _$changeLanguageStateImpl
     with DiagnosticableTreeMixin
     implements changeLanguageState {
-  const _$changeLanguageStateImpl({required this.isDark});
+  const _$changeLanguageStateImpl({required this.locale, required this.isDark});
 
+  @override
+  final Locale locale;
   @override
   final bool isDark;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AppState.changeLanguage(isDark: $isDark)';
+    return 'AppState.changeLanguage(locale: $locale, isDark: $isDark)';
   }
 
   @override
@@ -395,6 +402,7 @@ class _$changeLanguageStateImpl
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'AppState.changeLanguage'))
+      ..add(DiagnosticsProperty('locale', locale))
       ..add(DiagnosticsProperty('isDark', isDark));
   }
 
@@ -403,11 +411,12 @@ class _$changeLanguageStateImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$changeLanguageStateImpl &&
+            (identical(other.locale, locale) || other.locale == locale) &&
             (identical(other.isDark, isDark) || other.isDark == isDark));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isDark);
+  int get hashCode => Object.hash(runtimeType, locale, isDark);
 
   @JsonKey(ignore: true)
   @override
@@ -421,9 +430,9 @@ class _$changeLanguageStateImpl
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(bool isDark) changeThemeMode,
-    required TResult Function(bool isDark) changeLanguage,
+    required TResult Function(Locale locale, bool isDark) changeLanguage,
   }) {
-    return changeLanguage(isDark);
+    return changeLanguage(locale, isDark);
   }
 
   @override
@@ -431,9 +440,9 @@ class _$changeLanguageStateImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(bool isDark)? changeThemeMode,
-    TResult? Function(bool isDark)? changeLanguage,
+    TResult? Function(Locale locale, bool isDark)? changeLanguage,
   }) {
-    return changeLanguage?.call(isDark);
+    return changeLanguage?.call(locale, isDark);
   }
 
   @override
@@ -441,11 +450,11 @@ class _$changeLanguageStateImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(bool isDark)? changeThemeMode,
-    TResult Function(bool isDark)? changeLanguage,
+    TResult Function(Locale locale, bool isDark)? changeLanguage,
     required TResult orElse(),
   }) {
     if (changeLanguage != null) {
-      return changeLanguage(isDark);
+      return changeLanguage(locale, isDark);
     }
     return orElse();
   }
@@ -486,9 +495,11 @@ class _$changeLanguageStateImpl
 }
 
 abstract class changeLanguageState implements AppState {
-  const factory changeLanguageState({required final bool isDark}) =
-      _$changeLanguageStateImpl;
+  const factory changeLanguageState(
+      {required final Locale locale,
+      required final bool isDark}) = _$changeLanguageStateImpl;
 
+  Locale get locale;
   bool get isDark;
   @JsonKey(ignore: true)
   _$$changeLanguageStateImplCopyWith<_$changeLanguageStateImpl> get copyWith =>
