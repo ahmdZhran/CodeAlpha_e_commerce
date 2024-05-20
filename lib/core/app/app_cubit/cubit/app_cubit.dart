@@ -36,7 +36,7 @@ class AppCubit extends Cubit<AppState> {
   }
 
   Future<void> _changeLang(String langCode) async {
-    SharedPref().setString(PrefKeys.language, currentLang);
+    SharedPref().setString(PrefKeys.language, langCode);
     currentLang = langCode;
     emit(AppState.changeLanguage(locale: Locale(currentLang)));
   }
