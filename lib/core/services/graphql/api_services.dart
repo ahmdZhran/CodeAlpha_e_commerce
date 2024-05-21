@@ -7,7 +7,7 @@ part 'api_services.g.dart';
 
 const String baseUrl = "https://api.escuelajs.co";
 const String graphql = "/graphql";
-const String profileUrl = "https://api.escuelajs.co/api/v1/auth/profile";
+const String profileUrl = "api/v1/auth/profile";
 
 @RestApi(baseUrl: baseUrl)
 abstract class ApiServices {
@@ -19,7 +19,5 @@ abstract class ApiServices {
   );
 
   @GET(profileUrl)
-  Future<UserRoleResponse> userRole(
-    @Body() Map<String, dynamic> getUserRole,
-  );
+  Future<UserRoleResponse> userRole();
 }
