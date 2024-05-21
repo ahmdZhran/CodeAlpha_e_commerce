@@ -6,8 +6,9 @@ part 'user_role_response.g.dart';
 class UserRoleResponse {
   @JsonKey(name: "role")
   final String? uesrRole;
-
-  UserRoleResponse(this.uesrRole);
+  @JsonKey(name: "Id")
+  final int? userId;
+  UserRoleResponse(this.uesrRole, this.userId);
   factory UserRoleResponse.fromJson(Map<String, dynamic> json) =>
       _$UserRoleResponseFromJson(json);
 }

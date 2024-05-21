@@ -9,9 +9,11 @@ part of 'user_role_response.dart';
 UserRoleResponse _$UserRoleResponseFromJson(Map<String, dynamic> json) =>
     UserRoleResponse(
       json['role'] as String?,
+      (json['Id'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$UserRoleResponseToJson(UserRoleResponse instance) =>
     <String, dynamic>{
       'role': instance.uesrRole,
+      'Id': instance.userId,
     };

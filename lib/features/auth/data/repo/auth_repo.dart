@@ -2,6 +2,7 @@ import 'package:e_commerce_app/core/services/graphql/api_result.dart';
 import 'package:e_commerce_app/features/auth/data/data_source/auth_data_source.dart';
 import 'package:e_commerce_app/features/auth/data/models/login_request_body.dart';
 import 'package:e_commerce_app/features/auth/data/models/login_response.dart';
+import 'package:e_commerce_app/features/auth/data/user_role_response.dart';
 
 class AuthRepo {
   final AuthDataSource _dataSource;
@@ -16,5 +17,12 @@ class AuthRepo {
     } catch (error) {
       return const ApiResult.failure('Somethign went wrong please try again');
     }
+  }
+
+  Future<UserRoleResponse> userRole(String token) async {
+   
+      final response = await _dataSource.userRole(token);
+      return response;
+   
   }
 }
