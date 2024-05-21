@@ -26,7 +26,7 @@ class AppCubit extends Cubit<AppState> {
       });
     }
   }
-
+ // app languges
   void getSaveLanguage() {
     final result = SharedPref().containPreference(PrefKeys.language)
         ? SharedPref().getString(PrefKeys.language)
