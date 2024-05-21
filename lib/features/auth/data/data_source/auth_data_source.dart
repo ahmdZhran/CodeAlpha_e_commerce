@@ -7,8 +7,8 @@ class AuthDataSource {
   final ApiServices _graphql;
 
   AuthDataSource(this._graphql);
- 
- //Login 
+
+  //Login
   Future<LoginRespose> login({required LoginRequestBody body}) async {
     final response =
         await _graphql.login(AuthQueries().loginMapQuery(body: body));
