@@ -1,10 +1,11 @@
 
 import 'package:dio/dio.dart';
+import 'package:e_commerce_app/core/services/shared_pref.dart';
 import 'package:flutter/material.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-import '../services/pref_keys.dart';
-import '../services/shared_pref.dart';
+import '../pref_keys.dart';
+
 
 class DioFactory {
   DioFactory._();
