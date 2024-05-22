@@ -39,7 +39,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       final user = await _repo.userRole(userToken);
 
       await SharedPref().setInt(PrefKeys.userId, user.userId ?? 0);
-      emit( AuthState.Success(userRole:user.uesrRole ?? "" ));
+
+      emit(AuthState.Success(userRole: user.uesrRole ?? ""));
     }, failure: (error) {
       emit(AuthState.Failur(errMessage: error));
     });
