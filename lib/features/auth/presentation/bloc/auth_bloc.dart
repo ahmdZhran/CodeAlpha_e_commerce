@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:e_commerce_app/core/services/pref_keys.dart';
+import 'package:e_commerce_app/core/services/shared_pref.dart';
 import 'package:e_commerce_app/features/auth/data/models/login_request_body.dart';
 import 'package:e_commerce_app/features/auth/data/repo/auth_repo.dart';
 import 'package:flutter/foundation.dart';
@@ -27,7 +29,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       password: passwordController.text,
     ));
 
-    result.when(success: (loginData) {
+    await result.when(success: (loginData) async {
+      // save access token in shared prefrence
+      await SharedPref().setString(
+          PrefKeys.accessToken, loginData.data.login.accessToken ?? "");
+
       emit(const AuthState.Success());
     }, failure: (error) {
       emit(AuthState.Failur(errMessage: error));
