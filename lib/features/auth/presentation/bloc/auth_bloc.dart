@@ -30,10 +30,15 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     ));
 
     await result.when(success: (loginData) async {
+      final userToken = loginData.data.login.accessToken ?? "";
       // save access token in shared prefrence
-      await SharedPref().setString(
-          PrefKeys.accessToken, loginData.data.login.accessToken ?? "");
 
+      await SharedPref().setString(
+        PrefKeys.accessToken,userToken
+      );
+
+      // get user token
+      await _repo.userRole(userToken);
       emit(const AuthState.Success());
     }, failure: (error) {
       emit(AuthState.Failur(errMessage: error));
