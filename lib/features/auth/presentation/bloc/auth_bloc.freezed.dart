@@ -38,19 +38,19 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function($LoginEvent value) Login,
+    required TResult Function(LoginEvent value) Login,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function($LoginEvent value)? Login,
+    TResult? Function(LoginEvent value)? Login,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function($LoginEvent value)? Login,
+    TResult Function(LoginEvent value)? Login,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -149,7 +149,7 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function($LoginEvent value) Login,
+    required TResult Function(LoginEvent value) Login,
   }) {
     return started(this);
   }
@@ -158,7 +158,7 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function($LoginEvent value)? Login,
+    TResult? Function(LoginEvent value)? Login,
   }) {
     return started?.call(this);
   }
@@ -167,7 +167,7 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function($LoginEvent value)? Login,
+    TResult Function(LoginEvent value)? Login,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -182,25 +182,25 @@ abstract class _Started implements AuthEvent {
 }
 
 /// @nodoc
-abstract class _$$$LoginEventImplCopyWith<$Res> {
-  factory _$$$LoginEventImplCopyWith(
-          _$$LoginEventImpl value, $Res Function(_$$LoginEventImpl) then) =
-      __$$$LoginEventImplCopyWithImpl<$Res>;
+abstract class _$$LoginEventImplCopyWith<$Res> {
+  factory _$$LoginEventImplCopyWith(
+          _$LoginEventImpl value, $Res Function(_$LoginEventImpl) then) =
+      __$$LoginEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$$LoginEventImplCopyWithImpl<$Res>
-    extends _$AuthEventCopyWithImpl<$Res, _$$LoginEventImpl>
-    implements _$$$LoginEventImplCopyWith<$Res> {
-  __$$$LoginEventImplCopyWithImpl(
-      _$$LoginEventImpl _value, $Res Function(_$$LoginEventImpl) _then)
+class __$$LoginEventImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$LoginEventImpl>
+    implements _$$LoginEventImplCopyWith<$Res> {
+  __$$LoginEventImplCopyWithImpl(
+      _$LoginEventImpl _value, $Res Function(_$LoginEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$$LoginEventImpl with DiagnosticableTreeMixin implements $LoginEvent {
-  const _$$LoginEventImpl();
+class _$LoginEventImpl with DiagnosticableTreeMixin implements LoginEvent {
+  const _$LoginEventImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -216,7 +216,7 @@ class _$$LoginEventImpl with DiagnosticableTreeMixin implements $LoginEvent {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$$LoginEventImpl);
+        (other.runtimeType == runtimeType && other is _$LoginEventImpl);
   }
 
   @override
@@ -257,7 +257,7 @@ class _$$LoginEventImpl with DiagnosticableTreeMixin implements $LoginEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function($LoginEvent value) Login,
+    required TResult Function(LoginEvent value) Login,
   }) {
     return Login(this);
   }
@@ -266,7 +266,7 @@ class _$$LoginEventImpl with DiagnosticableTreeMixin implements $LoginEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function($LoginEvent value)? Login,
+    TResult? Function(LoginEvent value)? Login,
   }) {
     return Login?.call(this);
   }
@@ -275,7 +275,7 @@ class _$$LoginEventImpl with DiagnosticableTreeMixin implements $LoginEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function($LoginEvent value)? Login,
+    TResult Function(LoginEvent value)? Login,
     required TResult orElse(),
   }) {
     if (Login != null) {
@@ -285,8 +285,8 @@ class _$$LoginEventImpl with DiagnosticableTreeMixin implements $LoginEvent {
   }
 }
 
-abstract class $LoginEvent implements AuthEvent {
-  const factory $LoginEvent() = _$$LoginEventImpl;
+abstract class LoginEvent implements AuthEvent {
+  const factory LoginEvent() = _$LoginEventImpl;
 }
 
 /// @nodoc
