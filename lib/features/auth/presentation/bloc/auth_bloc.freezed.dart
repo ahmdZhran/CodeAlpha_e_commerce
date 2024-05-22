@@ -295,7 +295,7 @@ mixin _$AuthState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() Loading,
-    required TResult Function() Success,
+    required TResult Function(String userRole) Success,
     required TResult Function(String errMessage) Failur,
   }) =>
       throw _privateConstructorUsedError;
@@ -303,7 +303,7 @@ mixin _$AuthState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? Loading,
-    TResult? Function()? Success,
+    TResult? Function(String userRole)? Success,
     TResult? Function(String errMessage)? Failur,
   }) =>
       throw _privateConstructorUsedError;
@@ -311,7 +311,7 @@ mixin _$AuthState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? Loading,
-    TResult Function()? Success,
+    TResult Function(String userRole)? Success,
     TResult Function(String errMessage)? Failur,
     required TResult orElse(),
   }) =>
@@ -406,7 +406,7 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() Loading,
-    required TResult Function() Success,
+    required TResult Function(String userRole) Success,
     required TResult Function(String errMessage) Failur,
   }) {
     return initial();
@@ -417,7 +417,7 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? Loading,
-    TResult? Function()? Success,
+    TResult? Function(String userRole)? Success,
     TResult? Function(String errMessage)? Failur,
   }) {
     return initial?.call();
@@ -428,7 +428,7 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? Loading,
-    TResult Function()? Success,
+    TResult Function(String userRole)? Success,
     TResult Function(String errMessage)? Failur,
     required TResult orElse(),
   }) {
@@ -526,7 +526,7 @@ class _$LoadingStateImpl with DiagnosticableTreeMixin implements LoadingState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() Loading,
-    required TResult Function() Success,
+    required TResult Function(String userRole) Success,
     required TResult Function(String errMessage) Failur,
   }) {
     return Loading();
@@ -537,7 +537,7 @@ class _$LoadingStateImpl with DiagnosticableTreeMixin implements LoadingState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? Loading,
-    TResult? Function()? Success,
+    TResult? Function(String userRole)? Success,
     TResult? Function(String errMessage)? Failur,
   }) {
     return Loading?.call();
@@ -548,7 +548,7 @@ class _$LoadingStateImpl with DiagnosticableTreeMixin implements LoadingState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? Loading,
-    TResult Function()? Success,
+    TResult Function(String userRole)? Success,
     TResult Function(String errMessage)? Failur,
     required TResult orElse(),
   }) {
@@ -605,6 +605,8 @@ abstract class _$$SuccessStateImplCopyWith<$Res> {
   factory _$$SuccessStateImplCopyWith(
           _$SuccessStateImpl value, $Res Function(_$SuccessStateImpl) then) =
       __$$SuccessStateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String userRole});
 }
 
 /// @nodoc
@@ -614,42 +616,69 @@ class __$$SuccessStateImplCopyWithImpl<$Res>
   __$$SuccessStateImplCopyWithImpl(
       _$SuccessStateImpl _value, $Res Function(_$SuccessStateImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userRole = null,
+  }) {
+    return _then(_$SuccessStateImpl(
+      userRole: null == userRole
+          ? _value.userRole
+          : userRole // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$SuccessStateImpl with DiagnosticableTreeMixin implements SuccessState {
-  const _$SuccessStateImpl();
+  const _$SuccessStateImpl({required this.userRole});
+
+  @override
+  final String userRole;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthState.Success()';
+    return 'AuthState.Success(userRole: $userRole)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'AuthState.Success'));
+    properties
+      ..add(DiagnosticsProperty('type', 'AuthState.Success'))
+      ..add(DiagnosticsProperty('userRole', userRole));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SuccessStateImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$SuccessStateImpl &&
+            (identical(other.userRole, userRole) ||
+                other.userRole == userRole));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, userRole);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SuccessStateImplCopyWith<_$SuccessStateImpl> get copyWith =>
+      __$$SuccessStateImplCopyWithImpl<_$SuccessStateImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() Loading,
-    required TResult Function() Success,
+    required TResult Function(String userRole) Success,
     required TResult Function(String errMessage) Failur,
   }) {
-    return Success();
+    return Success(userRole);
   }
 
   @override
@@ -657,10 +686,10 @@ class _$SuccessStateImpl with DiagnosticableTreeMixin implements SuccessState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? Loading,
-    TResult? Function()? Success,
+    TResult? Function(String userRole)? Success,
     TResult? Function(String errMessage)? Failur,
   }) {
-    return Success?.call();
+    return Success?.call(userRole);
   }
 
   @override
@@ -668,12 +697,12 @@ class _$SuccessStateImpl with DiagnosticableTreeMixin implements SuccessState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? Loading,
-    TResult Function()? Success,
+    TResult Function(String userRole)? Success,
     TResult Function(String errMessage)? Failur,
     required TResult orElse(),
   }) {
     if (Success != null) {
-      return Success();
+      return Success(userRole);
     }
     return orElse();
   }
@@ -717,7 +746,13 @@ class _$SuccessStateImpl with DiagnosticableTreeMixin implements SuccessState {
 }
 
 abstract class SuccessState implements AuthState {
-  const factory SuccessState() = _$SuccessStateImpl;
+  const factory SuccessState({required final String userRole}) =
+      _$SuccessStateImpl;
+
+  String get userRole;
+  @JsonKey(ignore: true)
+  _$$SuccessStateImplCopyWith<_$SuccessStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -795,7 +830,7 @@ class _$FailurStateImpl with DiagnosticableTreeMixin implements FailurState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() Loading,
-    required TResult Function() Success,
+    required TResult Function(String userRole) Success,
     required TResult Function(String errMessage) Failur,
   }) {
     return Failur(errMessage);
@@ -806,7 +841,7 @@ class _$FailurStateImpl with DiagnosticableTreeMixin implements FailurState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? Loading,
-    TResult? Function()? Success,
+    TResult? Function(String userRole)? Success,
     TResult? Function(String errMessage)? Failur,
   }) {
     return Failur?.call(errMessage);
@@ -817,7 +852,7 @@ class _$FailurStateImpl with DiagnosticableTreeMixin implements FailurState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? Loading,
-    TResult Function()? Success,
+    TResult Function(String userRole)? Success,
     TResult Function(String errMessage)? Failur,
     required TResult orElse(),
   }) {
