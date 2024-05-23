@@ -1,5 +1,4 @@
 import 'package:e_commerce_app/core/app/app_cubit/cubit/app_cubit.dart';
-import 'package:e_commerce_app/core/di/dependency_injector.dart';
 import 'package:e_commerce_app/core/services/pref_keys.dart';
 import 'package:e_commerce_app/core/services/shared_pref.dart';
 import 'package:e_commerce_app/core/theme/app_theme.dart';
@@ -21,7 +20,7 @@ class Ecommerce extends StatelessWidget {
       builder: (_, value, __) {
         if (value) {
           return BlocProvider(
-            create: (context) => getIt<AppCubit>()
+            create: (context) => AppCubit()
               ..changeThemeAppMode(
                 sharedMode: SharedPref().getBoolean(PrefKeys.themeMode),
               )

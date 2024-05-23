@@ -15,9 +15,14 @@ class CustomTextForm extends StatefulWidget {
 
 class _CustomTextFormState extends State<CustomTextForm> {
   bool isPasswordShown = false;
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Form(
+      // key: _bloc.formKey,
       child: Column(
         children: [
           CustomFadeInRight(
@@ -40,6 +45,7 @@ class _CustomTextFormState extends State<CustomTextForm> {
             duration: 200,
             child: CustomTextField(
               controller: TextEditingController(),
+              // controller: _bloc.emailController,
               hintText: context.translate(LangKeys.email),
               keyboardType: TextInputType.emailAddress,
               validator: (value) {
@@ -57,6 +63,7 @@ class _CustomTextFormState extends State<CustomTextForm> {
             child: CustomTextField(
               obscureText: isPasswordShown,
               controller: TextEditingController(),
+              // controller: _bloc.passwordController,
               hintText: context.translate(LangKeys.password),
               keyboardType: TextInputType.visiblePassword,
               validator: (value) {

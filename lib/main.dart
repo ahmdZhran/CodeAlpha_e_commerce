@@ -10,13 +10,16 @@ import 'e_commerce_app.dart';
 import 'firebase_options.dart';
 
 void main() async {
-  await EnvVariable.instance.init(envType: EnvTypeEnum.dev);
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  Bloc.observer = AppBlocObserver();
+
+  await EnvVariable.instance.init(envType: EnvTypeEnum.dev);
+
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  await SharedPref().instantiatePreferences();
+
   await setupServiceLocator();
-  SharedPref().instantiatePreferences();
+
+  Bloc.observer = AppBlocObserver();
   runApp(const Ecommerce());
 }
