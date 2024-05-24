@@ -21,5 +21,6 @@ void main() async {
   await setupServiceLocator();
 
   Bloc.observer = AppBlocObserver();
+
   runApp(const Ecommerce());
 }

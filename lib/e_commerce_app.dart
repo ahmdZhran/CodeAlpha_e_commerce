@@ -38,6 +38,7 @@ class Ecommerce extends StatelessWidget {
                       return GestureDetector(
                         onTap: () {
                           FocusManager.instance.primaryFocus?.unfocus();
+                          
                         },
                         child: Scaffold(
                           body: Builder(
