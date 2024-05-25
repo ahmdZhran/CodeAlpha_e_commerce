@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/core/extentions/extentions_helper.dart';
+import 'package:e_commerce_app/core/router/app_router.dart';
 import 'package:e_commerce_app/core/widgets/animation/animate_do_widget.dart';
 import 'package:e_commerce_app/core/widgets/show_toast.dart';
 import 'package:flutter/material.dart';
@@ -27,6 +28,11 @@ class LoginButton extends StatelessWidget {
                   LangKeys.loggedSuccessfully,
                 ),
               );
+              if (userRole == "admin") {
+                context.pushNamedAndRemoveUntil(AppRouter.adminView);
+              }else{
+                   context.pushNamedAndRemoveUntil(AppRouter.customerView);
+              }
             },
             Failur: (errMessage) {
               ShowToast.showToastErrorTop(
