@@ -1,9 +1,9 @@
 import 'package:e_commerce_app/core/extentions/extentions_helper.dart';
 import 'package:e_commerce_app/core/widgets/animation/animate_do_widget.dart';
+import 'package:e_commerce_app/core/widgets/show_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../core/languages/lang_keys.dart';
 import '../../../../core/utils/font_wieght_styles.dart';
 import '../../../../core/widgets/text_app.dart';
@@ -18,7 +18,26 @@ class LoginButton extends StatelessWidget {
     return CustomFadeInRight(
       duration: 400,
       child: BlocConsumer<AuthBloc, AuthState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          state.whenOrNull(
+            Success: (userRole) {
+              ShowToast.showToastSuccessTop(
+                context: context,
+                message: context.translate(
+                  LangKeys.loggedSuccessfully,
+                ),
+              );
+            },
+            Failur: (errMessage) {
+              ShowToast.showToastErrorTop(
+                context: context,
+                message: context.translate(
+                  errMessage,
+                ),
+              );
+            },
+          );
+        },
         builder: (context, state) {
           return state.maybeWhen(
             orElse: () {
@@ -49,11 +68,7 @@ class LoginButton extends StatelessWidget {
   }
 
   void _loginValidate(BuildContext context) {
-       if (context
-        .read<AuthBloc>()
-        .formKey
-        .currentState!
-        .validate()) {
+    if (context.read<AuthBloc>().formKey.currentState!.validate()) {
       context.read<AuthBloc>().add(const AuthEvent.Login());
     }
   }
