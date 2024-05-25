@@ -4,7 +4,10 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 class ShowToast {
   const ShowToast._();
-
+  factory ShowToast() {
+    return _instance;
+  }
+  static const ShowToast _instance = ShowToast._();
   static void showToastErrorTop({
     required BuildContext context,
     required String message,
