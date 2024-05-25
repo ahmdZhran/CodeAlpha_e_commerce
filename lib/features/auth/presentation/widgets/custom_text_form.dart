@@ -35,22 +35,6 @@ class _CustomTextFormState extends State<CustomTextForm> {
           CustomFadeInRight(
             duration: 200,
             child: CustomTextField(
-              controller: TextEditingController(),
-              hintText: context.translate(LangKeys.fullName),
-              keyboardType: TextInputType.name,
-              validator: (value) {
-                if (AppRegex.isEmailValid('value')) {
-                  return context.translate(LangKeys.validEmail);
-                } else {
-                  return null;
-                }
-              },
-            ),
-          ),
-          SizedBox(height: 25.h),
-          CustomFadeInRight(
-            duration: 200,
-            child: CustomTextField(
               controller: _bloc.emailController,
               hintText: context.translate(LangKeys.email),
               keyboardType: TextInputType.emailAddress,

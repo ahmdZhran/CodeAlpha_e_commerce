@@ -5,7 +5,6 @@ import 'package:e_commerce_app/core/utils/font_wieght_styles.dart';
 import 'package:e_commerce_app/core/widgets/animation/animate_do_widget.dart';
 import 'package:e_commerce_app/core/widgets/text_app.dart';
 import 'package:e_commerce_app/features/auth/presentation/widgets/auth_title_info.dart';
-import 'package:e_commerce_app/features/auth/presentation/widgets/custom_button.dart';
 import 'package:e_commerce_app/features/auth/presentation/widgets/custom_text_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -59,4 +58,3 @@ class SignInBody extends StatelessWidget {
     );
   }
 }
-
