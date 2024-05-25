@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/core/languages/lang_keys.dart';
 import 'package:e_commerce_app/core/services/graphql/api_result.dart';
 import 'package:e_commerce_app/features/auth/data/data_source/auth_data_source.dart';
 import 'package:e_commerce_app/features/auth/data/models/login_request_body.dart';
@@ -15,14 +16,12 @@ class AuthRepo {
       final response = await _dataSource.login(body: body);
       return ApiResult.success(response);
     } catch (error) {
-      return const ApiResult.failure('Somethign went wrong please try again');
+      return const ApiResult.failure(LangKeys.loggedError);
     }
   }
 
   Future<UserRoleResponse> userRole(String token) async {
-   
-      final response = await _dataSource.userRole(token);
-      return response;
-   
+    final response = await _dataSource.userRole(token);
+    return response;
   }
 }
