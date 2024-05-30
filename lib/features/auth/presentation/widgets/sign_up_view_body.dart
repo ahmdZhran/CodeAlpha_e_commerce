@@ -38,7 +38,12 @@ class SignUpViewBody extends StatelessWidget {
             CustomTextForm(),
             SizedBox(height: 30),
             CustomButton(
-              text: context.translate(LangKeys.signUp),
+              childOfFadeButton: TextApp(
+                  text: context.translate(LangKeys.signUp),
+                  theme: context.textStyle.copyWith(
+                    fontSize: 18.sp,
+                    fontWeight: FontWeightStyle.bold,
+                  )),
               onPressed: () {},
             ),
             SizedBox(height: 60.h),

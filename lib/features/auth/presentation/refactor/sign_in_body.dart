@@ -5,11 +5,11 @@ import 'package:e_commerce_app/core/utils/font_wieght_styles.dart';
 import 'package:e_commerce_app/core/widgets/animation/animate_do_widget.dart';
 import 'package:e_commerce_app/core/widgets/text_app.dart';
 import 'package:e_commerce_app/features/auth/presentation/widgets/auth_title_info.dart';
-import 'package:e_commerce_app/features/auth/presentation/widgets/custom_button.dart';
 import 'package:e_commerce_app/features/auth/presentation/widgets/custom_text_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../widgets/login_button_widget.dart';
 import '../widgets/mode_and_language_toggle_buttons .dart';
 
 class SignInBody extends StatelessWidget {
@@ -34,10 +34,7 @@ class SignInBody extends StatelessWidget {
             SizedBox(height: 50.h),
             CustomTextForm(),
             SizedBox(height: 30),
-            CustomButton(
-              text: context.translate(LangKeys.login),
-              onPressed: () {},
-            ),
+            LoginButton(),
             SizedBox(height: 60.h),
             GestureDetector(
               onTap: () {

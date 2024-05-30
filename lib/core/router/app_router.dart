@@ -1,9 +1,11 @@
 import 'package:e_commerce_app/core/di/dependency_injector.dart';
 import 'package:e_commerce_app/core/router/base_routes.dart';
 import 'package:e_commerce_app/core/router/default_router.dart';
+import 'package:e_commerce_app/features/admin/presentation/views/admin_view.dart';
 import 'package:e_commerce_app/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:e_commerce_app/features/auth/presentation/views/sign_in_view.dart';
 import 'package:e_commerce_app/features/auth/presentation/views/sign_up_view.dart';
+import 'package:e_commerce_app/features/customer/presentation/views/customer_veiw.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,6 +13,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class AppRouter {
   static const String signInView = "Sign In view";
   static const String signUpView = "Sign Up view";
+  static const String adminView = "Admin";
+  static const String customerView = "Customer";
 
   static Route<void> onGenerateRoute(RouteSettings settings) {
     // final args = settings.arguments;
@@ -19,10 +23,14 @@ class AppRouter {
         return BaseRoute(
             page: BlocProvider(
           create: (context) => getIt<AuthBloc>(),
-          child: SignInView(),
+          child: const SignInView(),
         ));
       case signUpView:
         return BaseRoute(page: SignUpView());
+      case adminView:
+        return BaseRoute(page: AdminView());
+      case customerView:
+        return BaseRoute(page: CustomerView());
 
       default:
         return BaseRoute(page: NoRouteFinded());
